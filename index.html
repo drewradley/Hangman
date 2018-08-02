@@ -267,7 +267,7 @@
 
     // Creating variables to hold the number of wins, losses, and ties. They start at 0.
     var wins = 0;
-    var guesses = 0;
+    var guesses = 9;
     var answerArray =[];
     var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
     console.log(computerGuess);
@@ -306,7 +306,7 @@
         document.querySelector("#game").innerHTML = html;
         return;
       }
-      if(guesses>8)
+      else if(guesses<1)
       {
         var html =
           "<h2>You lost! The computer chose: " + computerGuess + "</h2>" ;
@@ -322,16 +322,18 @@
   {
     var html =
           "<h2>You chose: " + userGuesses.join() + "</h2>" +
-          "<h3>Guesses: " + guesses + "</h3>" +
+          "<h3>Guesses left: " + guesses + "</h3>" +
           "<h2>"+ answerArray.join(" ") +"</h2>";
 
         document.querySelector("#game").innerHTML = html;
   }
   function checkLetter(L)
   {
+    var isCorrect = false;
       for(var i=0;i<computerGuess.length; i++)
       {
         if(L===computerGuess[i]){
+          isCorrect=true;
           answerArray[i]=L;
           var finalAnswer = answerArray.join("");
           if(finalAnswer === computerGuess)
@@ -341,6 +343,10 @@
           
           //return;
         }
+      }
+      if(!isCorrect)
+      {
+        guesses--;
       }
       setGUI();
   }
