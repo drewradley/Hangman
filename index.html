@@ -255,21 +255,22 @@
   "weigh","weight","welcome","well","went","were","west","western",
   "wet","whale","what","whatever","wheat","wheel","when","whenever",
   "where","wherever","whether","which","while","whispered","whistle","white",
-  "who","whole","whom","whose","why","wide","widely","wife",
+  "who","whole","whom","whose","wide","widely","wife",
   "wild","will","willing","win","wind","window","wing","winter",
   "wire","wise","wish","with","within","without","wolf","women",
   "won","wonder","wonderful","wood","wooden","wool","word","wore",
   "work","worker","world","worried","worry","worse","worth","would",
   "wrapped","write","writer","writing","written","wrong","wrote","yard",
   "year","yellow","yes","yesterday","yet","you","young","younger",
-  "your","yourself","youth","zero","zebra","zipper","zoo","zulu"
+  "your","yourself","youth","zero","zebra","zipper","zulu"
 ];
 
     // Creating variables to hold the number of wins, losses, and ties. They start at 0.
     var wins = 0;
     var guesses = 9;
     var answerArray =[];
-    var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
+    var computerGuess;
+    pickWord();
     console.log(computerGuess);
     var userGuesses = [];
     for (var i = 0; i < computerGuess.length; i++) 
@@ -317,6 +318,11 @@
     }
 
       
+  }
+  function pickWord()
+  {
+    computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
+  if(computerGuess.length<5)pickWord();
   }
   function setGUI()
   {
