@@ -281,8 +281,9 @@
     var answerArray =[];
     var computerGuess;
     pickWord();
-    console.log(computerGuess);
+    // console.log(computerGuess);
     var userGuesses = [];
+    var userGuess = "";
     for (var i = 0; i < computerGuess.length; i++) 
       {
         answerArray[i] = "_";    
@@ -299,7 +300,7 @@
     /////////////////////magic starts here
   document.onkeyup = function(event) {
    if(!gameStarted)return;
-      var userGuess = event.key;
+      userGuess = event.key;
       if(alphabet.indexOf(userGuess.toLowerCase())>=0)//if index is -1 it't not in the alphabet array and thus not a letter.
       {
         if(userGuesses.indexOf(userGuess)<0) //if index is -1 it hasn't been guessed yet and is a vaild guess
@@ -308,13 +309,13 @@
           checkLetter(userGuess);
         }
        
+        setGUI();
+        //  var html =
+        //   "<h2>You chose: " + userGuesses.join() + "</h2>" +
+        //   "<h3>Guesses: " + guesses + "</h3>" +
+        //   "<h2>"+ answerArray.join(" ") +"</h2>";
 
-         var html =
-          "<h2>You chose: " + userGuesses.join() + "</h2>" +
-          "<h3>Guesses: " + guesses + "</h3>" +
-          "<h2>"+ answerArray.join(" ") +"</h2>";
-
-        document.querySelector("#game").innerHTML = html;
+        // document.querySelector("#game").innerHTML = html;
         
       if(wins>0)
       {
