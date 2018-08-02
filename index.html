@@ -283,9 +283,9 @@
   document.onkeyup = function(event) {
       
       var userGuess = event.key;
-      if(alphabet.indexOf(userGuess.toLowerCase())>=0)
+      if(alphabet.indexOf(userGuess.toLowerCase())>=0)//if index is -1 it't not in the alphabet array and thus not a letter.
       {
-        if(userGuesses.indexOf(userGuess)<0)
+        if(userGuesses.indexOf(userGuess)<0) //if index is -1 it hasn't been guessed yet and is a vaild guess
         {
           userGuesses.push(userGuess);
           checkLetter(userGuess);
