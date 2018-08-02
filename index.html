@@ -8,12 +8,22 @@
 </head>
 
 <body>
-
+    <audio id="myAudio">
+        <source src="playGame.mp3" type="audio/mpeg">
+          Your browser does not support the audio element.
+    </audio>
   <div class="jumbotron text-center" id="game">
     <h1>Hangman</h1>
+    <button onclick="StartGame()" type="button">Start Game</button>
   </div>
   
+
+  
   <script type="text/javascript">
+  var gameStarted =false;
+  var x = document.getElementById("myAudio"); 
+  //var x = document.createElement("AUDIO");
+   
   
   var alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
 
@@ -278,10 +288,17 @@
         answerArray[i] = "_";    
       };
       var dashes =answerArray.join(" ");
-    setGUI();
+    
+    function StartGame()
+    {
+      // if(gameStarted)return;
+      x.play();
+      setGUI();
+      gameStarted=true;
+    }
     /////////////////////magic starts here
   document.onkeyup = function(event) {
-      
+   if(!gameStarted)return;
       var userGuess = event.key;
       if(alphabet.indexOf(userGuess.toLowerCase())>=0)//if index is -1 it't not in the alphabet array and thus not a letter.
       {
@@ -321,6 +338,7 @@
   }
   function pickWord()
   {
+   
     computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
   if(computerGuess.length<5)pickWord();
   }
