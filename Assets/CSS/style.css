@@ -1,0 +1,31 @@
+body{
+    background-image: url("../Images/bkg.jpg");
+    background-size: 80%;
+    background-repeat: no-repeat;
+    background-color: black;
+    background-attachment: fixed;
+    background-position: 50% 50%; 
+}
+.jumbotron
+{
+    position: relative;
+    top: 100px;
+    width:50%;
+    left:25%;
+    opacity: .9;
+   
+}
+h2, p, h3{
+    font-family: 'Unica One', cursive;
+}
+h1{
+    
+    text-shadow: 2px 2px #858383;
+    font-family: 'Ultra', serif;
+    text-align: center;
+    font-size: 75px;
+    padding: 50px;
+    padding-right: 500px;
+    color: azure;
+    transform: rotate(-20deg);
+}
